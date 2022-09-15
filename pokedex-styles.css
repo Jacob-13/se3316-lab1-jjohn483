@@ -1,18 +1,22 @@
 body {
-    background-color: rgb(255, 220, 210);
+    background-color: gray;
     text-align: center;
+    color: white;
 }
 
 ul {
     list-style-type: none;
+    margin-right: 50px;
 }
 
 li {
     text-align: center;
     width: 150px;
-    float: left;
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(150, 225, 255);
     margin: 10px;
+    border-radius: 25%;
+    display: inline-block;
+    color: black;
 }
 
 img {
