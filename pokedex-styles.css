@@ -1,12 +1,16 @@
 body {
-    background-color: gray;
+    background-color: rgb(50, 50, 50);
     text-align: center;
-    color: white;
+    color: lightpink;
 }
 
 ul {
     list-style-type: none;
     margin-right: 50px;
+}
+
+#namebox {
+    margin-left: 50px;
 }
 
 li {
