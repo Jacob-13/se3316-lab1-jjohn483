@@ -1,3 +1,18 @@
+const numSearch = document.getElementById('numSearch');
+const nameSearch = document.getElementById('nameSearch');
+
+//Function handles a search from the number search bar
+let numResults = function() {
+    num = numSearch.value;
+    if (num <= 1 || num >= 20){
+        numSearch.value = null;
+        alert("Number out of bounds, please try again.");
+    } else {
+        alert("Chosen Pokemon...\n\t" + "Name: " + pokemonArr[num - 1].name + "\n\tNumber: "
+        + pokemonArr[num - 1].num + "\n\tDescription: " + pokemonArr[num - 1].description);
+    }
+}
+
 //Pokemon objects
 let bulbasaur = {
     name: "Bulbasaur",
@@ -124,4 +139,3 @@ let pokemonArr = [ bulbasaur, ivysaur, venusaur, charmander, charmeleon, chariza
     squirtle, wartortole, blastoise, caterpie, metapod, butterfree, weedle, kakuna, 
     beedrill, pidgey, pidgeotto, pidgeot, rattata, raticate];
 
-console.log(pokemonArr[0].name);
