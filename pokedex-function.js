@@ -1,6 +1,9 @@
+let numSearch = document.getElementById("numSearch");
+
+
 //Pokemon objects
 let bulbasaur = {
-    name: "bulbasaur",
+    name: "Bulbasaur",
     num: 1,
     description: "Grass/Poison"
 }
@@ -38,31 +41,31 @@ let charizard = {
 let squirtle = {
     name: "Squirtle",
     num: 7,
-    description: "water"
+    description: "Water"
 }
 
 let wartortole = {
     name: "Wartortle",
     num: 8,
-    description: "water"
+    description: "Water"
 }
 
 let blastoise = {
     name: "Blastoise",
     num: 9,
-    description: "water"
+    description: "Water"
 }
 
 let caterpie = {
     name: "Caterpie",
     num: 10,
-    description: "bug"
+    description: "Bug"
 }
 
 let metapod = {
     name: "Metapod",
     num: 11,
-    description: "bug"
+    description: "Bug"
 }
 
 let butterfree = {
