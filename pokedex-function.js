@@ -1,6 +1,3 @@
-let numSearch = document.getElementById("numSearch");
-
-
 //Pokemon objects
 let bulbasaur = {
     name: "Bulbasaur",
@@ -126,3 +123,5 @@ let raticate = {
 let pokemonArr = [ bulbasaur, ivysaur, venusaur, charmander, charmeleon, charizard, 
     squirtle, wartortole, blastoise, caterpie, metapod, butterfree, weedle, kakuna, 
     beedrill, pidgey, pidgeotto, pidgeot, rattata, raticate];
+
+console.log(pokemonArr[0].name);
