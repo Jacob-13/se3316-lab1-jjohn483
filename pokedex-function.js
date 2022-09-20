@@ -188,8 +188,8 @@ let numResults = function() {
         numSearch.value = null;
         alert("Number out of bounds, please try again.");
     } else {
-        alert("Chosen Pokemon...\n\t" + "Name: " + pokemonArr[0][num - 1].name + "\n\tNumber: "
-        + pokemonArr[0][num - 1].num + "\n\tDescription: " + pokemonArr[0][num - 1].description);
+        alert(pokemonArr[0][num - 1].name + "\n\tNumber: "
+        + pokemonArr[0][num - 1].num + "\n\t" + pokemonArr[0][num - 1].description);
         numSearch.value = null; //clears the search bar
     }
 }
