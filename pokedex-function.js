@@ -13,6 +13,16 @@ let numResults = function() {
     }
 }
 
+//Funtion handles a search from the name search bar
+let namReults = function() {
+    pokeName = nameSearch.value;
+    if(pokeName.length > 20){
+        alert("Search must only be 20 Characters");
+        nameSearch.value = pokeName.slice(0,pokeName.length - 1);
+    }
+}
+
+
 //Pokemon objects
 let bulbasaur = {
     name: "Bulbasaur",
