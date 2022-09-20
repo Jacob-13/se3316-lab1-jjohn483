@@ -4,7 +4,7 @@ const nameSearch = document.getElementById('nameSearch');
 //Function handles a search from the number search bar
 let numResults = function() {
     num = numSearch.value;
-    if (num <= 1 || num >= 20){
+    if (num < 1 || num > 20){
         numSearch.value = null;
         alert("Number out of bounds, please try again.");
     } else {
