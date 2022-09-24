@@ -191,7 +191,14 @@ let numEntered = function(e){
 //Called on num search bar btn click
 let searchBtn = function() {
     result = pokemonArr.filter(character => character.num.toString().includes(numSearch.value));
-    displayResult();
+
+    if(result.length > 19){
+        result.length = 0;
+        displayResult();
+    } else {
+        displayResult();
+
+    }
 }
 
 //called on btn press, displays the appropriate alert based on number of pokemon that fit the search
