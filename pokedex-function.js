@@ -126,10 +126,21 @@ let result = []; //an array for storing the filtered results used in the name se
  ]
 
 
-//Funtion handles a search from the name search bar
-let namEntered = function () {
+//Funtion handles the name search bar restrictions
+let namEntered = function (e) {
+    console.log(e.keyCode)
+    
+    //prevents a key from being inputed if its not a-z and not enter/backspace
+    if((e.keyCode < 65 || e.keyCode > 90) && e.keyCode != 13 && e.keyCode != 8){
+        e.preventDefault();
 
-    pokeName = nameSearch.value;
+    } else if ((e.target.value.length >= 20) && e.keyCode != 13 && e.keyCode != 8){
+        e.preventDefault();
+    }
+    
+    
+    
+    /*pokeName = nameSearch.value;
 
     //an alert to keep the number of characters at 20
     if(pokeName.length > 20){
@@ -138,8 +149,22 @@ let namEntered = function () {
     }
 
     //stores the filtered search result array in the variable 'result'
-    result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(pokeName.toLowerCase()));
+    result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(pokeName.toLowerCase()));*/
 }
+
+let namInput = function(e){
+    namVal = e.target.value.toLowerCase();
+    result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(namVal));
+
+    if(e.keyCode == 13 && result.length > 19){ //if nothing is in search bar, displays no results
+        result.length = 0;
+        displayResult();
+    } else if (e.keyCode == 13){
+        displayResult();
+    }
+}
+
+
 
 let numEntered = function(e){
     console.log(e.keyCode)
@@ -204,5 +229,6 @@ let displayResult = function() {
             + result[3].name + "\n\tNumber: " + result[3].num + "\n\t" + result[3].description + "\n"
             + result [4].name + "\n\tNumber: " + result[4].num + "\n\t" + result[4].description);
     }
-    nameSearch.value = null; //clears the search bar
+    nameSearch.value = null; //clears the name search bar
+    numSearch.value = null; //clears the num search bar
 }
