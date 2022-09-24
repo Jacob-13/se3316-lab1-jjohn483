@@ -141,46 +141,33 @@ let namEntered = function () {
     result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(pokeName.toLowerCase()));
 }
 
-/*
-    Enter a number -> triggers function to filter results.
-    When search is clicked, display results.
-*/
-
 let numEntered = function(e){
+    console.log(e.keyCode)
 
-    if(e.keyCode < 47 && e.keyCode > 58){
-        // result = pokemonArr.filter(character => character.num.toString().includes(e.target.value));
-        // console.log(e.target.value.length)
+    if((e.keyCode < 47 || e.keyCode > 58) && e.keyCode != 13){ //if a non-number key is pressed, nothing will happen
         e.preventDefault();
-    } else if (e.keyCode === 13){
+
+    } else if (e.keyCode === 13){ //enter key will display results
         result = pokemonArr.filter(character => character.num.toString().includes(e.target.value));
-        displayResult();
-        console.log(numSearch.value.length);
-    } else {
-        //e.preventDefault();
+
+        if(result.length > 19){ //if nothing in search, displays "no results found"
+            result.length = 0;
+            displayResult();
+        } else {
+            displayResult();
+        }
+
+    } else if (e.target.value < 1 || e.target.value > 20){ //if the number entered is out of bounds, alert user
+        alert("Number is out of bounds. Please enter a number between 1 and 20")
+        numSearch.value = null;
     }
 }
 
+//Called on num search bar btn click
 let searchBtn = function() {
     result = pokemonArr.filter(character => character.num.toString().includes(numSearch.value));
     displayResult();
 }
-
-
-//Function handles a search from the number search bar
-// let numEntered = function() {
-//     pokeNum = numSearch.value;
-//         if (pokeNum < 1 || pokeNum > 20){
-//             //numSearch.value = null;
-//             //alert("Number out of bounds, please try again.");
-//         } else {
-//                 // alert(pokemonArr[pokeNum - 1].name + "\n\tNumber: "
-//                 // + pokemonArr[pokeNum - 1].num + "\n\t" + pokemonArr[pokeNum - 1].description);
-//                 // numSearch.value = null; //clears the search bar
-//             //stores the filtered search result array in the variable 'result'
-//             result = pokemonArr.filter(pokemon => pokemon.num.toString().includes(pokeNum));
-//         }
-// }
 
 //called on btn press, displays the appropriate alert based on number of pokemon that fit the search
 let displayResult = function() {
