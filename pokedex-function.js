@@ -3,134 +3,132 @@ const nameSearch = document.getElementById('nameSearch'); //name search bar refe
 let result = []; //an array for storing the filtered results used in the name search function
 
 //Pokemon objects
- let pokemon = {
-    bulbasaur: {
+ let pokemonArr = [
+    bulbasaur = {
         name: "Bulbasaur",
         num: 1,
         description: 'Type: Grass/Poison\n\tHeight: 2 04"\n\tWeight: 15.2 lbs\n\tCategory: Seed'
     },
 
-    ivysaur: {
+    ivysaur = {
         name: "Ivysaur",
         num: 2,
         description: 'Type: Grass/Poison\n\tHeight: 3 03"\n\tWeight: 28.7 lbs\n\tCategory: Seed'
     },
 
-    venusaur: {
+    venusaur = {
         name: "Venusaur",
         num: 3,
         description: 'Type: Grass/Poison\n\tHeight: 6 07"\n\tWeight: 220.5 lbs\n\tCategory: Seed'
     },
 
-    charmander: {
+    charmander = {
         name: "Charmander",
         num: 4,
         description: 'Type: Fire\n\tHeight: 2 00"\n\tWeight: 18.7 lbs\n\tCategory: Lizard'
     },
 
-    charmeleon: {
+    charmeleon = {
         name: "Charmeleon",
         num: 5,
         description: 'Type: Fire\n\tHeight: 3 07"\n\tWeight: 41.9 lbs\n\tCategory: Flame'
     },
 
-    charizard: {
+    charizard = {
         name: "Charizard",
         num: 6,
         description: 'Type: Fire/Flying\n\tHeight: 5 07"\n\tWeight: 199.5 lbs\n\tCategory: Flame'
     },
 
-    squirtle: {
+    squirtle = {
         name: "Squirtle",
         num: 7,
         description: 'Type: Water\n\tHeight: 1 08"\n\tWeight: 19.8 lbs\n\tCategory: Tiny Turtle'
     },
 
-    wartortole: {
+    wartortole = {
         name: "Wartortle",
         num: 8,
         description: 'Type: Water\n\tHeight: 3 03"\n\tWeight: 49.6 lbs\n\tCategory: Turtle'
     },
 
-    blastoise: {
+    blastoise = {
         name: "Blastoise",
         num: 9,
         description: 'Type: Water\n\tHeight: 5 03"\n\tWeight: 188.5 lbs\n\tCategory: Shellfish'
     },
 
-    caterpie: {
+    caterpie = {
         name: "Caterpie",
         num: 10,
         description: 'Type: Bug\n\tHeight: 1 00"\n\tWeight: 6.4 lbs\n\tCategory: Worm'
     },
 
-    metapod: {
+    metapod = {
         name: "Metapod",
         num: 11,
         description: 'Type: Bug\n\tHeight: 2 04"\n\tWeight: 21.8 lbs\n\tCategory: Cocoon'
     },
 
-    butterfree: {
+    butterfree = {
         name: "Butterfree",
         num: 12,
         description: 'Type: Bug/Flying\n\tHeight: 3 07"\n\tWeight: 70.5 lbs\n\tCategory: Butterfly'
     },
 
-    weedle: {
+    weedle = {
         name: "Weedle",
         num: 13,
         description: 'Type: Bug/Poison\n\tHeight: 1 00"\n\tWeight: 7.1 lbs\n\tCategory: Hairy Bug'
     },
 
-    kakuna: {
+    kakuna = {
         name: "Kakuna",
         num: 14,
         description: 'Type: Bug/Poison\n\tHeight: 2 00"\n\tWeight: 22.0 lbs\n\tCategory: Cocoon'
     },
 
-    beedrill: {
+    beedrill = {
         name: "Beedrill",
         num: 15,
         description: 'Type: Bug/Poison\n\tHeight: 3 03"\n\tWeight: 65.0 lbs\n\tCategory: Poison Bee'
     },
 
-    pidgey: {
+    pidgey = {
         name: "Pidgey",
         num: 16,
         description: 'Type: Normal/Flying\n\tHeight: 1 00"\n\tWeight: 4.0 lbs\n\tCategory: Tiny Bird'
     },
 
-    pidgeotto: {
+    pidgeotto = {
         name: "Pidgeotto",
         num: 17,
         description: 'Type: Normal/Flying\n\tHeight: 3 07"\n\tWeight: 66.1 lbs\n\tCategory: Bird'
     },
 
-    pidgeot: {
+    pidgeot = {
         name: "Pidgeot",
         num: 18,
         description: 'Type: Normal/Flying\n\tHeight: 4 11"\n\tWeight: 87.1 lbs\n\tCategory: Bird'
     },
 
-    rattata: {
+    rattata = {
         name: "Rattata",
         num: 19,
         description: 'Type: Normal\n\tHeight: 1 00"\n\tWeight: 7.7 lbs\n\tCategory: Mouse'
     },
 
-    raticate: {
+    raticate = {
         name: "Raticate",
         num: 20,
         description: 'Type: Normal\n\tHeight: 2 04"\n\tWeight: 40.8 lbs\n\tCategory: Mouse'
     }
-}
+ ]
 
-//An array with an element that is an array of pokemon
-let pokemonArr = [];
-pokemonArr.push(Object.values(pokemon));
 
 //Funtion handles a search from the name search bar
-let namReults = function () {
+let namEntered = function () {
+
     pokeName = nameSearch.value;
 
     //an alert to keep the number of characters at 20
@@ -140,8 +138,49 @@ let namReults = function () {
     }
 
     //stores the filtered search result array in the variable 'result'
-    result = pokemonArr[0].filter(pokemon => pokemon.name.toLowerCase().includes(pokeName.toLowerCase()));
+    result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(pokeName.toLowerCase()));
 }
+
+/*
+    Enter a number -> triggers function to filter results.
+    When search is clicked, display results.
+*/
+
+let numEntered = function(e){
+
+    if(e.keyCode < 47 && e.keyCode > 58){
+        // result = pokemonArr.filter(character => character.num.toString().includes(e.target.value));
+        // console.log(e.target.value.length)
+        e.preventDefault();
+    } else if (e.keyCode === 13){
+        result = pokemonArr.filter(character => character.num.toString().includes(e.target.value));
+        displayResult();
+        console.log(numSearch.value.length);
+    } else {
+        //e.preventDefault();
+    }
+}
+
+let searchBtn = function() {
+    result = pokemonArr.filter(character => character.num.toString().includes(numSearch.value));
+    displayResult();
+}
+
+
+//Function handles a search from the number search bar
+// let numEntered = function() {
+//     pokeNum = numSearch.value;
+//         if (pokeNum < 1 || pokeNum > 20){
+//             //numSearch.value = null;
+//             //alert("Number out of bounds, please try again.");
+//         } else {
+//                 // alert(pokemonArr[pokeNum - 1].name + "\n\tNumber: "
+//                 // + pokemonArr[pokeNum - 1].num + "\n\t" + pokemonArr[pokeNum - 1].description);
+//                 // numSearch.value = null; //clears the search bar
+//             //stores the filtered search result array in the variable 'result'
+//             result = pokemonArr.filter(pokemon => pokemon.num.toString().includes(pokeNum));
+//         }
+// }
 
 //called on btn press, displays the appropriate alert based on number of pokemon that fit the search
 let displayResult = function() {
@@ -179,17 +218,4 @@ let displayResult = function() {
             + result [4].name + "\n\tNumber: " + result[4].num + "\n\t" + result[4].description);
     }
     nameSearch.value = null; //clears the search bar
-}
-
-//Function handles a search from the number search bar
-let numResults = function() {
-    num = numSearch.value;
-    if (num < 1 || num > 20){
-        numSearch.value = null;
-        alert("Number out of bounds, please try again.");
-    } else {
-        alert(pokemonArr[0][num - 1].name + "\n\tNumber: "
-        + pokemonArr[0][num - 1].num + "\n\t" + pokemonArr[0][num - 1].description);
-        numSearch.value = null; //clears the search bar
-    }
 }
