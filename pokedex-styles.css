@@ -1,7 +1,7 @@
 body {
-    background-color: rgb(70, 70, 70);
     text-align: center;
-    color: lightpink;
+    color: lightcoral;
+    background-image: linear-gradient(rgb(80,80,80), rgb(30,30,30));
 }
 
 ul {
@@ -9,18 +9,28 @@ ul {
     margin-right: 50px;
 }
 
-#namebox {
+input, button {
+    font-size: 17px;
+    padding: 5px 10px;
+    border: 2px solid rgb(50,50,50);
+    border-radius: 10px;
+}
+
+#nameSearch {
     margin-left: 50px;
 }
 
 li {
     text-align: center;
+    font-size: 17px;
     width: 150px;
-    background-color: rgb(150, 225, 255);
+    background-color: rgb(100,100,100);
+    background-image: radial-gradient(rgba(150, 225, 255,1),rgb(150, 225, 255,0.25));
     margin: 10px;
     border-radius: 25%;
     display: inline-block;
     color: black;
+    border: 2px solid black;
 }
 
 img {
