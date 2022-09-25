@@ -126,37 +126,28 @@ let result = []; //an array for storing the filtered results used in the name se
  ]
 
 
-//Funtion handles the name search bar restrictions
+//Funtion handles the name search bar restrictions, called on keyDown
 let namEntered = function (e) {
-    console.log(e.keyCode)
     
     //prevents a key from being inputed if its not a-z and not enter/backspace
     if((e.keyCode < 65 || e.keyCode > 90) && e.keyCode != 13 && e.keyCode != 8){
         e.preventDefault();
 
+    //prevents a character from being entered after the number of characters in the search bar reaches 20
     } else if ((e.target.value.length >= 20) && e.keyCode != 13 && e.keyCode != 8){
         e.preventDefault();
     }
-    
-    
-    
-    /*pokeName = nameSearch.value;
-
-    //an alert to keep the number of characters at 20
-    if(pokeName.length > 20){
-        alert("Search must only be 20 Characters");
-        nameSearch.value = pokeName.slice(0,pokeName.length - 1);
-    }
-
-    //stores the filtered search result array in the variable 'result'
-    result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(pokeName.toLowerCase()));*/
 }
 
-let namInput = function(e){
+//Called onKeyUp for name search to execute the search
+let namInput = function(e) {
+    
+    //filters array based on search value
     namVal = e.target.value.toLowerCase();
     result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(namVal));
 
-    if(e.keyCode == 13 && result.length > 19){ //if nothing is in search bar, displays no results
+    //if nothing is in search bar, displays no results
+    if(e.keyCode == 13 && result.length > 19){
         result.length = 0;
         displayResult();
     } else if (e.keyCode == 13){
@@ -164,12 +155,11 @@ let namInput = function(e){
     }
 }
 
-
-
+//Called on #numSearch keyUp
 let numEntered = function(e){
-    console.log(e.keyCode)
 
-    if((e.keyCode < 47 || e.keyCode > 58) && e.keyCode != 13){ //if a non-number key is pressed, nothing will happen
+    //prevents a non-number key from being entered
+    if((e.keyCode < 47 || e.keyCode > 58) && e.keyCode != 13){
         e.preventDefault();
 
     } else if (e.keyCode === 13){ //enter key will display results
@@ -182,14 +172,17 @@ let numEntered = function(e){
             displayResult();
         }
 
-    } else if (e.target.value < 1 || e.target.value > 20){ //if the number entered is out of bounds, alert user
+    //number out of bounds check
+    } else if (e.target.value < 1 || e.target.value > 20){
         alert("Number is out of bounds. Please enter a number between 1 and 20")
         numSearch.value = null;
     }
 }
 
-//Called on num search bar btn click
+//Called on numSearch btn click
 let searchBtn = function() {
+
+    //filter results
     result = pokemonArr.filter(character => character.num.toString().includes(numSearch.value));
 
     if(result.length > 19){
@@ -201,7 +194,7 @@ let searchBtn = function() {
     }
 }
 
-//called on btn press, displays the appropriate alert based on number of pokemon that fit the search
+//displays the appropriate alert based on search results
 let displayResult = function() {
     resultAmount = result.length;
 
