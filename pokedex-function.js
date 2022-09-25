@@ -7,121 +7,121 @@ let result = []; //an array for storing the filtered results used in the name se
     bulbasaur = {
         name: "Bulbasaur",
         num: 1,
-        description: 'Type: Grass/Poison\n\tHeight: 2 04"\n\tWeight: 15.2 lbs\n\tCategory: Seed'
+        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 4'
     },
 
     ivysaur = {
         name: "Ivysaur",
         num: 2,
-        description: 'Type: Grass/Poison\n\tHeight: 3 03"\n\tWeight: 28.7 lbs\n\tCategory: Seed'
+        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 5'
     },
 
     venusaur = {
         name: "Venusaur",
         num: 3,
-        description: 'Type: Grass/Poison\n\tHeight: 6 07"\n\tWeight: 220.5 lbs\n\tCategory: Seed'
+        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 6'
     },
 
     charmander = {
         name: "Charmander",
         num: 4,
-        description: 'Type: Fire\n\tHeight: 2 00"\n\tWeight: 18.7 lbs\n\tCategory: Lizard'
+        description: 'Type 1: Fire  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4'
     },
 
     charmeleon = {
         name: "Charmeleon",
         num: 5,
-        description: 'Type: Fire\n\tHeight: 3 07"\n\tWeight: 41.9 lbs\n\tCategory: Flame'
+        description: 'Type 1: Fire  |  Type 2: N/A  |  Gen: 1  |  Rarity: 5'
     },
 
     charizard = {
         name: "Charizard",
         num: 6,
-        description: 'Type: Fire/Flying\n\tHeight: 5 07"\n\tWeight: 199.5 lbs\n\tCategory: Flame'
+        description: 'Type 1: Fire  |  Type 2: Flying  |  Gen: 1  |  Rarity: 6'
     },
 
     squirtle = {
         name: "Squirtle",
         num: 7,
-        description: 'Type: Water\n\tHeight: 1 08"\n\tWeight: 19.8 lbs\n\tCategory: Tiny Turtle'
+        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4'
     },
 
     wartortole = {
         name: "Wartortle",
         num: 8,
-        description: 'Type: Water\n\tHeight: 3 03"\n\tWeight: 49.6 lbs\n\tCategory: Turtle'
+        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 5'
     },
 
     blastoise = {
         name: "Blastoise",
         num: 9,
-        description: 'Type: Water\n\tHeight: 5 03"\n\tWeight: 188.5 lbs\n\tCategory: Shellfish'
+        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 6'
     },
 
     caterpie = {
         name: "Caterpie",
         num: 10,
-        description: 'Type: Bug\n\tHeight: 1 00"\n\tWeight: 6.4 lbs\n\tCategory: Worm'
+        description: 'Type 1: Bug  |  Type 2: N/A  |  Gen: 1  |  Rarity: 1'
     },
 
     metapod = {
         name: "Metapod",
         num: 11,
-        description: 'Type: Bug\n\tHeight: 2 04"\n\tWeight: 21.8 lbs\n\tCategory: Cocoon'
+        description: 'Type 1: Bug  |  Type 2: N/A  |  Gen: 1  |  Rarity: 3'
     },
 
     butterfree = {
         name: "Butterfree",
         num: 12,
-        description: 'Type: Bug/Flying\n\tHeight: 3 07"\n\tWeight: 70.5 lbs\n\tCategory: Butterfly'
+        description: 'Type 1: Bug  |  Type 2: Flying  |  Gen: 1  |  Rarity: 4'
     },
 
     weedle = {
         name: "Weedle",
         num: 13,
-        description: 'Type: Bug/Poison\n\tHeight: 1 00"\n\tWeight: 7.1 lbs\n\tCategory: Hairy Bug'
+        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 1'
     },
 
     kakuna = {
         name: "Kakuna",
         num: 14,
-        description: 'Type: Bug/Poison\n\tHeight: 2 00"\n\tWeight: 22.0 lbs\n\tCategory: Cocoon'
+        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 3'
     },
 
     beedrill = {
         name: "Beedrill",
         num: 15,
-        description: 'Type: Bug/Poison\n\tHeight: 3 03"\n\tWeight: 65.0 lbs\n\tCategory: Poison Bee'
+        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 4'
     },
 
     pidgey = {
         name: "Pidgey",
         num: 16,
-        description: 'Type: Normal/Flying\n\tHeight: 1 00"\n\tWeight: 4.0 lbs\n\tCategory: Tiny Bird'
+        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 1'
     },
 
     pidgeotto = {
         name: "Pidgeotto",
         num: 17,
-        description: 'Type: Normal/Flying\n\tHeight: 3 07"\n\tWeight: 66.1 lbs\n\tCategory: Bird'
+        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 3'
     },
 
     pidgeot = {
         name: "Pidgeot",
         num: 18,
-        description: 'Type: Normal/Flying\n\tHeight: 4 11"\n\tWeight: 87.1 lbs\n\tCategory: Bird'
+        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 4'
     },
 
     rattata = {
         name: "Rattata",
         num: 19,
-        description: 'Type: Normal\n\tHeight: 1 00"\n\tWeight: 7.7 lbs\n\tCategory: Mouse'
+        description: 'Type 1: Normal  |  Type 2: N/A  |  Gen: 1  |  Rarity: 1'
     },
 
     raticate = {
         name: "Raticate",
         num: 20,
-        description: 'Type: Normal\n\tHeight: 2 04"\n\tWeight: 40.8 lbs\n\tCategory: Mouse'
+        description: 'Type 1: Normal  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4'
     }
  ]
 
@@ -203,31 +203,30 @@ let displayResult = function() {
             alert("No results found");
             break;
         case 1: 
-            alert(result[0].name + "\n\tNumber: "
+            alert(result[0].name + " | 0"
             + result[0].num + "\n\t" + result[0].description);
-            nameSearch.value = null;
             break;
         case 2:
-            alert(result[0].name + "\n\tNumber: " + result[0].num + "\n\t" + result[0].description + "\n"
-            + result[1].name + "\n\tNumber: " + result[1].num + "\n\t" + result[1].description)
+            alert(result[0].name + " | 0" + result[0].num + "\n\t" + result[0].description + "\n"
+            + result[1].name + " | 0" + result[1].num + "\n\t" + result[1].description)
             break;
         case 3:
-            alert(result[0].name + "\n\tNumber: " + result[0].num + "\n\t" + result[0].description + "\n"
-            + result[1].name + "\n\tNumber: " + result[1].num + "\n\t" + result[1].description + "\n" 
-            + result[2].name + "\n\tNumber: " + result[2].num + "\n\t" + result[2].description)
+            alert(result[0].name + " | 0" + result[0].num + "\n\t" + result[0].description + "\n"
+            + result[1].name + " | 0" + result[1].num + "\n\t" + result[1].description + "\n" 
+            + result[2].name + " | 0" + result[2].num + "\n\t" + result[2].description)
             break;
         case 4:
-            alert(result[0].name + "\n\tNumber: " + result[0].num + "\n\t" + result[0].description + "\n"
-            + result[1].name + "\n\tNumber: " + result[1].num + "\n\t" + result[1].description + "\n"
-            + result[2].name + "\n\tNumber: " + result[2].num + "\n\t" + result[2].description + "\n"
-            + result[3].name + "\n\tNumber: " + result[3].num + "\n\t" + result[3].description)
+            alert(result[0].name + " | 0" + result[0].num + "\n\t" + result[0].description + "\n"
+            + result[1].name + " | 0" + result[1].num + "\n\t" + result[1].description + "\n"
+            + result[2].name + " | 0" + result[2].num + "\n\t" + result[2].description + "\n"
+            + result[3].name + " | 0" + result[3].num + "\n\t" + result[3].description)
             break;
         default:
-            alert(result[0].name + "\n\tNumber: " + result[0].num + "\n\t" + result[0].description + "\n"
-            + result[1].name + "\n\tNumber: " + result[1].num + "\n\t" + result[1].description + "\n"
-            + result[2].name + "\n\tNumber: " + result[2].num + "\n\t" + result[2].description + "\n"
-            + result[3].name + "\n\tNumber: " + result[3].num + "\n\t" + result[3].description + "\n"
-            + result [4].name + "\n\tNumber: " + result[4].num + "\n\t" + result[4].description);
+            alert(result[0].name + " | 0" + result[0].num + "\n\t" + result[0].description + "\n"
+            + result[1].name + " | 0" + result[1].num + "\n\t" + result[1].description + "\n"
+            + result[2].name + " | 0" + result[2].num + "\n\t" + result[2].description + "\n"
+            + result[3].name + " | 0" + result[3].num + "\n\t" + result[3].description + "\n"
+            + result [4].name + " | 0" + result[4].num + "\n\t" + result[4].description);
     }
     nameSearch.value = null; //clears the name search bar
     numSearch.value = null; //clears the num search bar
