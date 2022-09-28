@@ -1,134 +1,168 @@
 const numSearch = document.getElementById('numSearch'); //number search bar reference
 const nameSearch = document.getElementById('nameSearch'); //name search bar reference
+
 let result = []; //an array for storing the filtered results used in the name search function
+
+//dynamic results global variables
+const divE = document.createElement("div");
+const listE = document.createElement("ul");
+
+divE.appendChild(listE);
+
+let listVisibility = "none";
+divE.style.display = listVisibility;
+
+
+
 
 //Pokemon objects
  let pokemonArr = [
     bulbasaur = {
         name: "Bulbasaur",
         num: 1,
-        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 4'
+        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 4',
+        img: "pokemon\\1.png"
     },
 
     ivysaur = {
         name: "Ivysaur",
         num: 2,
-        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 5'
+        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 5',
+        img: "pokemon\\2.png"
     },
 
     venusaur = {
         name: "Venusaur",
         num: 3,
-        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 6'
+        description: 'Type 1: Grass  |  Type 2: Poison  |  Gen: 1  |  Rarity: 6',
+        img: "pokemon\\3.png"
     },
 
     charmander = {
         name: "Charmander",
         num: 4,
-        description: 'Type 1: Fire  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4'
+        description: 'Type 1: Fire  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4',
+        img: "pokemon\\4.png"
     },
 
     charmeleon = {
         name: "Charmeleon",
         num: 5,
-        description: 'Type 1: Fire  |  Type 2: N/A  |  Gen: 1  |  Rarity: 5'
+        description: 'Type 1: Fire  |  Type 2: N/A  |  Gen: 1  |  Rarity: 5',
+        img: "pokemon\\5.png"
     },
 
     charizard = {
         name: "Charizard",
         num: 6,
-        description: 'Type 1: Fire  |  Type 2: Flying  |  Gen: 1  |  Rarity: 6'
+        description: 'Type 1: Fire  |  Type 2: Flying  |  Gen: 1  |  Rarity: 6',
+        img: "pokemon\\6.png"
     },
 
     squirtle = {
         name: "Squirtle",
         num: 7,
-        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4'
+        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4',
+        img: "pokemon\\7.png"
     },
 
     wartortole = {
         name: "Wartortle",
         num: 8,
-        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 5'
+        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 5',
+        img: "pokemon\\8.png"
     },
 
     blastoise = {
         name: "Blastoise",
         num: 9,
-        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 6'
+        description: 'Type 1: Water  |  Type 2: N/A  |  Gen: 1  |  Rarity: 6',
+        img: "pokemon\\9.png"
     },
 
     caterpie = {
         name: "Caterpie",
         num: 10,
-        description: 'Type 1: Bug  |  Type 2: N/A  |  Gen: 1  |  Rarity: 1'
+        description: 'Type 1: Bug  |  Type 2: N/A  |  Gen: 1  |  Rarity: 1',
+        img: "pokemon\\10.png"
     },
 
     metapod = {
         name: "Metapod",
         num: 11,
-        description: 'Type 1: Bug  |  Type 2: N/A  |  Gen: 1  |  Rarity: 3'
+        description: 'Type 1: Bug  |  Type 2: N/A  |  Gen: 1  |  Rarity: 3',
+        img: "pokemon\\11.png"
     },
 
     butterfree = {
         name: "Butterfree",
         num: 12,
-        description: 'Type 1: Bug  |  Type 2: Flying  |  Gen: 1  |  Rarity: 4'
+        description: 'Type 1: Bug  |  Type 2: Flying  |  Gen: 1  |  Rarity: 4',
+        img: "pokemon\\12.png"
     },
 
     weedle = {
         name: "Weedle",
         num: 13,
-        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 1'
+        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 1',
+        img: "pokemon\\13.png"
     },
 
     kakuna = {
         name: "Kakuna",
         num: 14,
-        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 3'
+        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 3',
+        img: "pokemon\\14.png"
     },
 
     beedrill = {
         name: "Beedrill",
         num: 15,
-        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 4'
+        description: 'Type 1: Bug  |  Type 2: Poison  |  Gen: 1  |  Rarity: 4',
+        img: "pokemon\\15.png"
     },
 
     pidgey = {
         name: "Pidgey",
         num: 16,
-        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 1'
+        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 1',
+        img: "pokemon\\16.png"
     },
 
     pidgeotto = {
         name: "Pidgeotto",
         num: 17,
-        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 3'
+        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 3',
+        img: "pokemon\\17.png"
     },
 
     pidgeot = {
         name: "Pidgeot",
         num: 18,
-        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 4'
+        description: 'Type 1: Normal  |  Type 2: Flying  |  Gen: 1  |  Rarity: 4',
+        img: "pokemon\\18.png"
     },
 
     rattata = {
         name: "Rattata",
         num: 19,
-        description: 'Type 1: Normal  |  Type 2: N/A  |  Gen: 1  |  Rarity: 1'
+        description: 'Type 1: Normal  |  Type 2: N/A  |  Gen: 1  |  Rarity: 1',
+        img: "pokemon\\19.png"
     },
 
     raticate = {
         name: "Raticate",
         num: 20,
-        description: 'Type 1: Normal  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4'
+        description: 'Type 1: Normal  |  Type 2: N/A  |  Gen: 1  |  Rarity: 4',
+        img: "pokemon\\20.png"
     }
  ]
 
 
 //Funtion handles the name search bar restrictions, called on keyDown
 let namEntered = function (e) {
-    
+    updateSearch();
+
     //prevents a key from being inputed if its not a-z and not enter/backspace
     if((e.keyCode < 65 || e.keyCode > 90) && e.keyCode != 13 && e.keyCode != 8){
         e.preventDefault();
@@ -157,6 +191,7 @@ let namInput = function(e) {
 
 //Called on #numSearch keyUp
 let numEntered = function(e){
+    updateSearch();
 
     //prevents a non-number key from being entered
     if((e.keyCode < 47 || e.keyCode > 58) && e.keyCode != 13){
@@ -230,4 +265,28 @@ let displayResult = function() {
     }
     nameSearch.value = null; //clears the name search bar
     numSearch.value = null; //clears the num search bar
+}
+
+
+let updateSearch = function() {
+
+    if(result.length > 0) {
+        divE.style.display = "inline-block";
+    }
+
+    for(let i = 0 ; i < result.length ; i++){
+
+
+
+    }
+
+    const listItem = document.createElement("li");
+    const testText = document.createTextNode("This is a test");
+
+    listE.appendChild(listItem);
+    listItem.appendChild(testText);
+
+    const searchBlock = document.getElementById("searching");
+    searchBlock.appendChild(listItem);
+
 }
