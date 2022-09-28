@@ -2,15 +2,17 @@ const numSearch = document.getElementById('numSearch'); //number search bar refe
 const nameSearch = document.getElementById('nameSearch'); //name search bar reference
 
 let result = []; //an array for storing the filtered results used in the name search function
+let newChildren = []; //an array used to keep track of new children for the dynamic updates
 
 //dynamic results global variables
+const searchBlock = document.getElementById("searching");
 const divE = document.createElement("div");
 const listE = document.createElement("ul");
 
+searchBlock.appendChild(divE);
 divE.appendChild(listE);
 
-let listVisibility = "none";
-divE.style.display = listVisibility;
+divE.style.display = "none";
 
 
 
@@ -161,7 +163,6 @@ divE.style.display = listVisibility;
 
 //Funtion handles the name search bar restrictions, called on keyDown
 let namEntered = function (e) {
-    updateSearch();
 
     //prevents a key from being inputed if its not a-z and not enter/backspace
     if((e.keyCode < 65 || e.keyCode > 90) && e.keyCode != 13 && e.keyCode != 8){
@@ -180,6 +181,8 @@ let namInput = function(e) {
     namVal = e.target.value.toLowerCase();
     result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(namVal));
 
+    updateSearch();
+
     //if nothing is in search bar, displays no results
     if(e.keyCode == 13 && result.length > 19){
         result.length = 0;
@@ -191,6 +194,7 @@ let namInput = function(e) {
 
 //Called on #numSearch keyUp
 let numEntered = function(e){
+    result = pokemonArr.filter(character => character.num.toString().includes(e.target.value));
     updateSearch();
 
     //prevents a non-number key from being entered
@@ -270,23 +274,32 @@ let displayResult = function() {
 
 let updateSearch = function() {
 
-    if(result.length > 0) {
+    if(result.length > 0 && result.length < 20) {
+        //newChildren = [];
+        while(listE.firstChild){
+            listE.firstChild.remove();
+        };
+
+        for(let i = 0 ; i < result.length ; i++)
+        {
+            let newItem = document.createElement("li");
+            listE.appendChild(newItem);
+
+            let newImg = document.createElement("img");
+            newImg.src = result[i].img;
+            newImg.alt = result[i].name;
+            newImg.width = 100;
+            newImg.height = 100;
+            newItem.appendChild(newImg);
+
+            let newText = document.createTextNode("\n" + result[i].name + "\n" + result[i].num + "\n\n\n\n\n\n\n" + result[i].description);
+            newItem.appendChild(newText);
+
+        }
+
         divE.style.display = "inline-block";
+    } else {
+        divE.style.display = "none";
     }
-
-    for(let i = 0 ; i < result.length ; i++){
-
-
-
-    }
-
-    const listItem = document.createElement("li");
-    const testText = document.createTextNode("This is a test");
-
-    listE.appendChild(listItem);
-    listItem.appendChild(testText);
-
-    const searchBlock = document.getElementById("searching");
-    searchBlock.appendChild(listItem);
 
 }
