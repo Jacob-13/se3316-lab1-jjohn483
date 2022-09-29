@@ -282,20 +282,33 @@ let updateSearch = function() {
 
         for(let i = 0 ; i < result.length ; i++)
         {
+
+            //creates a new list item and adds it to the list
             let newItem = document.createElement("li");
-            
             listE.appendChild(newItem);
 
+            let imgBlock = document.createElement("div")
+            newItem.appendChild(imgBlock)
+
+            //creates a new image and adds it to the list item
             let newImg = document.createElement("img");
             newImg.src = result[i].img;
             newImg.alt = result[i].name;
-            newImg.width = 100;
-            newImg.height = 100;
-            newItem.appendChild(newImg);
+            newImg.width = 70;
+            newImg.height = 70;
+            newImg.style.marginTop = 0;
+            imgBlock.appendChild(newImg);
 
-            let newText = document.createTextNode("\n" + result[i].name + "\n" + result[i].num + "\n" + result[i].description);
-            newItem.appendChild(newText);
+            //creates the text and adds it to the list item
+            let newText1 = document.createTextNode("\n" + result[i].name + " " + result[i].num);
+            newItem.appendChild(newText1);
 
+            let newBlock = document.createElement("div");
+            newBlock.style.fontSize = "15px";
+            newItem.appendChild(newBlock);
+
+            let newText2 = document.createTextNode(result[i].description);
+            newBlock.appendChild(newText2);
         }
 
         divE.style.display = "inline-block";

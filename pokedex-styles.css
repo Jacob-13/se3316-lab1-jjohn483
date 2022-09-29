@@ -24,14 +24,16 @@ input, button {
 }
 
 li {
-    background-color: rgba(150,225,255,0.75);
+    background-color: rgba(220,220,220,0.75);
     border: 2px solid black;
     margin: 10px;
-    font-size: 17px;
+    font-size: 20px;
     color: black;
     border-radius: 10px;
     padding: 10px;
-    display: inline-block;
+    display: grid;
+    width: 400;
+    text-align: center;
 }
 
 .pokemon {
