@@ -283,6 +283,7 @@ let updateSearch = function() {
         for(let i = 0 ; i < result.length ; i++)
         {
             let newItem = document.createElement("li");
+            
             listE.appendChild(newItem);
 
             let newImg = document.createElement("img");
@@ -292,7 +293,7 @@ let updateSearch = function() {
             newImg.height = 100;
             newItem.appendChild(newImg);
 
-            let newText = document.createTextNode("\n" + result[i].name + "\n" + result[i].num + "\n\n\n\n\n\n\n" + result[i].description);
+            let newText = document.createTextNode("\n" + result[i].name + "\n" + result[i].num + "\n" + result[i].description);
             newItem.appendChild(newText);
 
         }
