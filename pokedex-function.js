@@ -317,3 +317,22 @@ let updateSearch = function() {
     }
 
 }
+
+//---- unrequired fun -----------------------------------------------------
+
+let listElements = document.getElementsByTagName('li');
+
+let clickedPokemon = function(e){
+
+    let clickedName = e.firstChild.alt.value;
+    result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(clickedName));
+    displayResult();
+
+}
+
+for (let i = 0 ; i < listElements.length ; i++){
+
+    listElements[i].addEventListener(onclick, clickedPokemon());
+
+}
+
