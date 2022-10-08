@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    color: lightcoral;
+    color: rgb(220,220,220);
 }
 
 html {
@@ -18,6 +18,17 @@ input, button {
     border: 2px solid rgb(50,50,50);
     border-radius: 10px;
 }
+
+button {
+    background-color: dodgerblue;
+    color: white;
+}
+
+input {
+    background-color: rgb(40,40,40);
+    color: lightblue
+}
+
 
 #nameSearch {
     margin-left: 50px;
@@ -54,7 +65,10 @@ li {
 
 .pokemon:hover {
     transform: scale(1.1);
-    border: 2px solid rgb(40,40,40);
+    background-color: rgb(220,220,220);
+    background-image: radial-gradient(lightblue, dodgerblue);
+    border: 2px solid lightblue;
+    color: white;
 }
 
 img {
@@ -66,5 +80,5 @@ p {
 }
 
 a {
-    color: lightblue;
+    color: lightcoral;
 }
