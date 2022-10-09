@@ -15,7 +15,7 @@
     
     <!-- Number and Text Search Bars -->
     
-        <input type="number" id="numSearch" onkeyup="return numEntered(event)" placeholder="Search by Number"/>
+        <input type="number" id="numSearch" onkeydown="return numEntered(event)" onkeyup="return numInput(event)" placeholder="Search by Number"/>
         <button type="submit" onclick="searchBtn()">Search</button>
 
         <input type="text" id="nameSearch" onkeydown="return namEntered(event)" onkeyup="return namInput(event)" placeholder="Search by Name"/>
