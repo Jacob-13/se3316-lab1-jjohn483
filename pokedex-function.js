@@ -2,7 +2,6 @@ const numSearch = document.getElementById('numSearch'); //number search bar refe
 const nameSearch = document.getElementById('nameSearch'); //name search bar reference
 
 let result = []; //an array for storing the filtered results used in the name search function
-let newChildren = []; //an array used to keep track of new children for the dynamic updates
 
 //dynamic results global variables
 const searchBlock = document.getElementById("searching");
@@ -11,10 +10,7 @@ const listE = document.createElement("ul");
 
 searchBlock.appendChild(divE);
 divE.appendChild(listE);
-
 divE.style.display = "none";
-
-
 
 
 //Pokemon objects
@@ -161,29 +157,35 @@ divE.style.display = "none";
  ]
 
 
-//Funtion handles the name search bar restrictions, called on keyDown
+
+// NAME SEARCH BAR FUNCTIONs
+
+// onKeyDown
+// Name search bar validation
 let namEntered = function (e) {
 
-    //prevents a key from being inputed if its not a-z and not enter/backspace
+    //validates key entry
     if((e.keyCode < 65 || e.keyCode > 90) && e.keyCode != 13 && e.keyCode != 8){
         e.preventDefault();
 
-    //prevents a character from being entered after the number of characters in the search bar reaches 20
+    //validates 20 char limit
     } else if ((e.target.value.length >= 20) && e.keyCode != 13 && e.keyCode != 8){
         e.preventDefault();
     }
 }
 
-//Called onKeyUp for name search to execute the search
+// onKeyUp from name search
+// updates results based on name search
 let namInput = function(e) {
     
-    //filters array based on search value
+    //filter results array
     namVal = e.target.value.toLowerCase();
     result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(namVal));
 
+    //update dynamic listen
     updateSearch();
 
-    //if nothing is in search bar, displays no results
+    //display result on enter key
     if(e.keyCode == 13 && result.length > 19){
         result.length = 0;
         displayResult();
@@ -192,8 +194,13 @@ let namInput = function(e) {
     }
 }
 
-//Called on #numSearch keyUp
+
+// NUMBER SEARCH FUNCTION
+
+//#numSearch onKeyUp
 let numEntered = function(e){
+    
+    //filter results
     result = pokemonArr.filter(character => character.num.toString().includes(e.target.value));
     updateSearch();
 
@@ -201,27 +208,28 @@ let numEntered = function(e){
     if((e.keyCode < 47 || e.keyCode > 58) && e.keyCode != 13){
         e.preventDefault();
 
-    } else if (e.keyCode === 13){ //enter key will display results
+    //enter key functionality
+    } else if (e.keyCode === 13){
+
         result = pokemonArr.filter(character => character.num.toString().includes(e.target.value));
 
-        if(result.length > 19){ //if nothing in search, displays "no results found"
+        if(result.length > 19){
             result.length = 0;
             displayResult();
         } else {
             displayResult();
         }
 
-    //number out of bounds check
+    // Validates number range
     } else if (e.target.value < 1 || e.target.value > 20){
         alert("Number is out of bounds. Please enter a number between 1 and 20")
         numSearch.value = null;
     }
 }
 
-//Called on numSearch btn click
+//onClick for both search buttons
 let searchBtn = function() {
 
-    //filter results
     result = pokemonArr.filter(character => character.num.toString().includes(numSearch.value));
 
     if(result.length > 19){
@@ -229,7 +237,6 @@ let searchBtn = function() {
         displayResult();
     } else {
         displayResult();
-
     }
 }
 
@@ -269,70 +276,59 @@ let displayResult = function() {
     }
     nameSearch.value = null; //clears the name search bar
     numSearch.value = null; //clears the num search bar
+
+    //clears dynamic search list
+    while(listE.firstChild){
+        listE.firstChild.remove();
+    };
 }
 
 
 let updateSearch = function() {
 
     if(result.length > 0 && result.length < 20) {
-        //newChildren = [];
+        
+        //Removes all children from list
         while(listE.firstChild){
             listE.firstChild.remove();
         };
 
+        //Imports all pokemon included in search
         for(let i = 0 ; i < result.length ; i++)
         {
 
-            //creates a new list item and adds it to the list
+            //creates new list item and appends it to list
             let newItem = document.createElement("li");
             listE.appendChild(newItem);
 
+            //creates new div for the image, number, and name
             let imgBlock = document.createElement("div")
             newItem.appendChild(imgBlock)
 
-            //creates a new image and adds it to the list item
+            //creates new image incorporating attributes, appends to the img block
             let newImg = document.createElement("img");
             newImg.src = result[i].img;
             newImg.alt = result[i].name;
             newImg.width = 70;
             newImg.height = 70;
-            newImg.style.marginTop = 0;
             imgBlock.appendChild(newImg);
 
             //creates the text and adds it to the list item
-            let newText1 = document.createTextNode("\n" + result[i].name + " " + result[i].num);
-            newItem.appendChild(newText1);
+            let titleText = document.createTextNode(result[i].num + " - " + result[i].name);
+            newItem.appendChild(titleText);
 
-            let newBlock = document.createElement("div");
-            newBlock.style.fontSize = "15px";
-            newItem.appendChild(newBlock);
+            //Create new div for description text
+            let descriptionBlock = document.createElement("div");
+            descriptionBlock.style.fontSize = "15px";
+            newItem.appendChild(descriptionBlock);
 
-            let newText2 = document.createTextNode(result[i].description);
-            newBlock.appendChild(newText2);
+            //Description text appended to descriptionBlock
+            let descriptionText = document.createTextNode(result[i].description);
+            descriptionBlock.appendChild(descriptionText);
         }
 
         divE.style.display = "inline-block";
     } else {
         divE.style.display = "none";
     }
-
 }
-
-//---- unrequired fun -----------------------------------------------------
-
-let listElements = document.getElementsByTagName('li');
-
-let clickedPokemon = function(e){
-
-    let clickedName = e.firstChild.alt.value;
-    result = pokemonArr.filter(pokemon => pokemon.name.toLowerCase().includes(clickedName));
-    displayResult();
-
-}
-
-for (let i = 0 ; i < listElements.length ; i++){
-
-    listElements[i].addEventListener(onclick, clickedPokemon());
-
-}
-
